@@ -29,7 +29,9 @@ app.get("/stats",(req,res)=>{
 //html routes
 //api routes
 app.get("/api/workouts",(req,res)=>{
-  console.log("get")
+  db.Workout.find({}).then(dbWorkout=>{
+    res.json(dbWorkout)
+  })
 })
 app.put("/api/workouts/:obid", (req,res)=>{
   console.log("put")
