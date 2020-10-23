@@ -33,7 +33,8 @@ app.get("/api/workouts",(req,res)=>{
     res.json(dbWorkout)
   })
 })
-app.put("/api/workouts/:obid", (req,res)=>{
+app.put("/api/workouts/:param", (req,res)=>{
+  let param = req.params.param
   console.log("put")
 })
 app.post("/api/workouts",(req,res)=>{
