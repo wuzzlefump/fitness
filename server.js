@@ -27,7 +27,20 @@ app.get("/stats",(req,res)=>{
   res.sendFile(path.join(__dirname, "./public/stats.html"))
 })
 //html routes
-
+//api routes
+app.get("/api/workouts",(req,res)=>{
+  console.log("get")
+})
+app.put("/api/workouts/:obid", (req,res)=>{
+  console.log("put")
+})
+app.post("/api/workouts",(req,res)=>{
+console.log("post")
+})
+app.get("/api/workouts/range", (req,res)=>{
+console.log("get range")
+})
+//api routes
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}`);
   });
