@@ -42,6 +42,9 @@ console.log("post")
 })
 app.get("/api/workouts/range", (req,res)=>{
 console.log("get range")
+db.Workout.find({}).then(dbWorkout=>{
+  res.json(dbWorkout)
+})
 })
 //api routes
 app.listen(PORT, () => {
