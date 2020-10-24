@@ -35,10 +35,25 @@ app.get("/api/workouts",(req,res)=>{
 })
 app.put("/api/workouts/:param", (req,res)=>{
   let param = req.params.param
-  console.log("put")
+  console.log(param)
+  console.log(req.body)
+
+  db.Workout.findByIdAndUpdate({_id:param},{$push:{exercises:req.body}}).then(dbWorkout=>{
+    res.json(dbWorkout)
+  }).catch(err=>{
+    res.json(err)
+  })
+
 })
+
 app.post("/api/workouts",(req,res)=>{
 console.log("post")
+db.Workout.create(req.body).then(dbWorkout=>{
+  res.json(dbWorkout)
+})
+.catch(err=>{
+  res.json(err)
+})
 })
 app.get("/api/workouts/range", (req,res)=>{
 console.log("get range")
