@@ -48,7 +48,8 @@ app.put("/api/workouts/:param", (req,res)=>{
 
 app.post("/api/workouts",(req,res)=>{
 console.log("post")
-db.Workout.create(req.body).then(dbWorkout=>{
+console.log(req.body)
+db.Workout.create({day: new Date(new Date().setDate(new Date().getDate())), exercises:[]}).then(dbWorkout=>{
   res.json(dbWorkout)
 })
 .catch(err=>{
